@@ -1,0 +1,38 @@
+import phaser from 'phaser'
+export default class CollectingStarScene extends
+Phaser.Scene
+{
+    constructor(){
+        super('collecting-stars-scene')
+    }
+    init(){
+    this.platforms= undefined
+    }
+
+    preload(){
+        this.load.image('ground', 'image/platform.png')
+        this.load.image('star', 'image/star.png')
+        this.load.image('sky', 'image/sky.png')
+        this.load.image('bomb', 'bomb.png')
+
+
+        this.load.spritesheet('dude', 'images/dude.png'
+        { frameWidth: 32, frameHeight: 48}
+        )
+    }
+    create(){
+        this.add.image(400, 300, 'sky')
+    this.platformsms=this.physics.add.staticGroup()
+    this.platformsms.create(600, 400, 'ground')
+    this.platformsms.create(50, 250, 'ground')
+    this.platformsms.create(750, 220, 'ground')
+    this.platformsms.create(400, 568, 'ground').setScale(2).refreshBody()
+
+
+    this.player = this.phisics.add.sprite(100, 450 'dude')
+    this.player.setCollideWorldBounds(true)
+    }
+    update(){
+
+    }
+}
